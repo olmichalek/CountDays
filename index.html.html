@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+  <style>
+  body {
+  background-color:#a6c0ca;
+  text-align: center; 
+  font-weight: bold; 
+  }
+  h2 {
+  margin-top: 100px; 
+  }
+  
+  #myresult {
+  margin-top: 10px; 
+  }
+  </style>
+</head>
+<body>
+<h2>
+Check how many days between 2 dates
+</h2>
+<form>
+Enter the first date:<br>
+<input type="date" id="dateInputone" style="margin-bottom: 10px;"><br>
+Enter the second date: <br>
+<input type="date" "mm/dd/yyyy" id="dateInputtwo"> <br><br>
+<button class="btn-primary" onclick = "my(); return false;">Calculate</button><br>
+<p id="myresult"></p>
+<input type="button" class="btn-danger" value="Reset" onclick = "yours();">
+</form>
+ <script>
+ function my() {
+ var down = document.getElementById("myresult"); 
+ 
+ var dateone = document.getElementById("dateInputone").value; 
+ var datetwo = document.getElementById("dateInputtwo").value;
+ var firstDate =  new Date(dateone); 
+ var secondDate = new Date(datetwo);
+ 
+ let TimeDifference = firstDate.getTime() - secondDate.getTime();
+ let TimeinDays = TimeDifference / (1000*60*60*24); //convert miliseconds to days 
+
+ down.innerHTML = "The difference in days is " + TimeinDays; 
+ }
+ 
+  function yours() {
+  location.reload();
+  }
+ </script>
+</body>
+</html>
